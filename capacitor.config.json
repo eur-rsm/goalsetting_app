@@ -1,0 +1,11 @@
+{
+  "appId": "nl.rsm.goalsetting",
+  "appName": "Goalsetting",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "www",
+  "cordova": {},
+  "linuxAndroidStudioPath": "<TODO>,
+  "versionCode": "14",
+  "versionName": "0.1.4"
+}

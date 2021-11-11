@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title >
+      <div class="ion-text-wrap" [innerHTML]="title"></div>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-radio-group
+        allow-empty-selection="false" name="radio-group"
+        (ionChange)="setValue($event)">
+      <ion-list-header *ngIf="body">
+        <ion-title >
+          <div class="ion-text-wrap" [innerHTML]="body"></div>
+        </ion-title>
+      </ion-list-header>
+
+      <ion-item *ngFor="let item of radioList">
+        <ion-label>
+          <div class="ion-text-wrap" [innerHTML]="item.title"></div>
+        </ion-label>
+        <ion-radio slot="start" value="{{ item.value }}"></ion-radio>
+      </ion-item>
+    </ion-radio-group>
+  </ion-list>
+
+</ion-content>
+
+<ion-footer>
+  <ion-button (click)="saveConfig()">
+    Save
+  </ion-button>
+</ion-footer>

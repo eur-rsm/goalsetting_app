@@ -1,0 +1,39 @@
+ion-buttons {
+  float: right;
+}
+
+ion-fab-button {
+  width: 27px !important;
+  height: 27px !important;
+  margin-right: 10px;
+}
+
+ion-toolbar {
+  padding-left: 10px;
+}
+
+ion-content div {
+  -webkit-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+  user-select: text;
+
+  height: 100%;
+  overflow: hidden;
+  padding-bottom: 10px;
+}
+
+ion-textarea {
+  height: 100%;
+  overflow: auto;
+
+  @supports (-webkit-touch-callout: none) {
+    margin-left: 10px;
+  }
+}
+
+ion-item {
+  height: 100%;
+  overflow: auto;
+  margin-top: 5px;
+}

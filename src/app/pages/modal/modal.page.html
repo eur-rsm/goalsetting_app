@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-label [innerHTML]="botMessage | safeHtml"
+               *ngIf="inputModal"></ion-label>
+    <ion-buttons>
+      <ion-fab-button (click)="saveInput()" title="{{ saveHelp }}"
+                      *ngIf="inputModal">
+        <ion-icon name="send"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-button (click)="dismissInput()" title="{{ dismissHelp }}"
+                      *ngIf="inputModal">
+        <ion-icon name="trash"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-button (click)="dismissInput()" *ngIf="!inputModal">
+        <ion-icon name="close"></ion-icon>
+      </ion-fab-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div *ngIf="inputModal === true">
+    <ion-textarea type="text" [(ngModel)]="userInput" mode="md"
+                  placeholder="Write a message...">
+    </ion-textarea>
+  </div>
+  <div *ngIf="inputModal === false">
+    <ion-item>
+      <ion-label class="ion-text-wrap"
+                 [innerHTML]="userInput | safeHtml"></ion-label>
+    </ion-item>
+  </div>
+</ion-content>

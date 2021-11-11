@@ -1,0 +1,277 @@
+ion-content {
+  --background: #FFFFFF;
+}
+
+ion-toolbar,
+ion-item {
+  --background: #171c54;
+}
+
+ion-list {
+  background: transparent;
+  padding-top: 20px;
+  margin-bottom: 0;
+}
+
+.scroll-viewport {
+  height: 100%;
+}
+
+ion-card, .card-ios, .card-md {
+  margin: 10px 10px 11px 10px;
+  box-shadow: none !important;
+  background-color: #FFFFFF;
+}
+
+ion-card div {
+  background-color: #FFFFFF;
+}
+
+ion-card-content {
+  color: #1e2023;
+  padding: 5px 8px 5px 8px;
+}
+
+.card-content-md {
+  padding: 5px 8px;
+}
+
+.sc-ion-card-md-h {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  border-radius: 0;
+}
+
+.bot-message {
+  border-radius: 8px;
+  background: #e1e1e1;
+  margin-right: max(20px, 20vw - 80px);
+  margin-bottom: 10px;
+  float: left;
+
+  .time {
+    color: rgba(0, 0, 0, .45);
+    position: fixed;
+  }
+}
+
+.user-message {
+  border-radius: 8px;
+  background: #48A8FF;
+  margin-left: max(20px, 20vw - 80px);
+  margin-bottom: 10px;
+  float: right;
+
+  .time {
+    color: rgba(0, 0, 0, .45);
+    position: fixed;
+    right: 16px;
+  }
+}
+
+ion-fab-button.popup {
+  margin-right: 10px;
+}
+
+ion-fab-button {
+  width: 27px !important;
+  height: 27px !important;
+}
+
+ion-input {
+  --placeholder-color: rgba(244, 245, 248, 0.7);
+  color: white;
+}
+
+ion-text {
+  font-size: 12px;
+  color: #000000;
+}
+
+ion-col {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+}
+
+.text {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+  visibility: visible;
+  font-size: 14px;
+}
+
+.time {
+  margin-top: 5px;
+  font-size: 11px;
+}
+
+.button {
+  margin-left: 4px;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+@media screen and (min-width: 480px) {
+  .button {
+    margin-left: 15px;
+  }
+}
+
+.ion-text-wrap {
+  justify-content: space-between;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: 10px;
+}
+
+div.buttons {
+  min-height: 49px;
+  max-width: 800px;
+  margin: auto;
+}
+
+.footer-warning {
+  min-height: 49px;
+  color: #ffffff;
+}
+
+ion-spinner {
+  margin-left: 10px;
+}
+
+/* https://codepen.io/zenorocha/pen/eZxYOK */
+
+.message {
+  color: #000;
+  clear: both;
+  line-height: 18px;
+  font-size: 15px;
+  padding: 8px;
+  position: relative;
+  margin: 0;
+  max-width: 90%;
+  word-wrap: break-word;
+}
+
+.message:after {
+  position: absolute;
+  content: "";
+  width: 0;
+  height: 0;
+  border-style: solid;
+}
+
+.metadata {
+  display: inline-block;
+  float: right;
+  padding: 0 0 0 7px;
+  position: relative;
+  bottom: -4px;
+}
+
+.metadata .time {
+  color: rgba(0, 0, 0, .45);
+  font-size: 11px;
+  display: inline-block;
+}
+
+.message:first-child {
+  margin: 16px 0 8px;
+}
+
+.message.received {
+  background: #e1e1e1;
+  border-radius: 0 5px 5px 5px;
+  float: left;
+}
+
+.message.received .metadata {
+  padding: 0 0 0 16px;
+}
+
+.message.received:after {
+  border-width: 0 10px 10px 0;
+  border-color: transparent #e1e1e1 transparent transparent;
+  top: 0;
+  left: -10px;
+}
+
+.message.sent {
+  background: #e1ffc7;
+  border-radius: 5px 0px 5px 5px;
+  float: right;
+}
+
+.message.sent:after {
+  border-width: 0 0 10px 10px;
+  border-color: transparent transparent transparent #e1ffc7;
+  top: 0;
+  right: -10px;
+}
+
+/* https://codepen.io/danielmorosan/pen/XmYBVx */
+.spinner {
+  text-align: center;
+}
+
+.spinner > div {
+  width: 12px;
+  height: 12px;
+  margin-left: 10px;
+  background-color: #999;
+
+  border-radius: 100%;
+  display: inline-block;
+  -webkit-animation: sk-bouncedelay 2.5s infinite ease-in-out both;
+  animation: sk-bouncedelay 2.5s infinite ease-in-out both;
+}
+
+.spinner .bounce1 {
+  -webkit-animation-delay: -1.25s;
+  animation-delay: -1.25;
+}
+
+.spinner .bounce2 {
+  -webkit-animation-delay: -1.00s;
+  animation-delay: -1.00s;
+}
+
+.spinner .bounce3 {
+  -webkit-animation-delay: -0.75s;
+  animation-delay: -0.75;
+}
+
+.spinner .bounce4 {
+  -webkit-animation-delay: -0.50s;
+  animation-delay: -0.50;
+}
+
+.spinner .bounce4 {
+  -webkit-animation-delay: -0.25s;
+  animation-delay: -0.25;
+}
+
+@-webkit-keyframes sk-bouncedelay {
+  0%, 80%, 100% {
+    -webkit-transform: scale(0)
+  }
+  40% {
+    -webkit-transform: scale(1.0)
+  }
+}
+
+@keyframes sk-bouncedelay {
+  0%, 80%, 100% {
+    -webkit-transform: scale(0);
+    transform: scale(0);
+  }
+  40% {
+    -webkit-transform: scale(1.0);
+    transform: scale(1.0);
+  }
+}

@@ -1,0 +1,91 @@
+<ion-header translucent>
+  <ion-toolbar>
+    <ion-title color="light" class="ion-text-center">
+      <ion-button (click)="report()">
+        REPORT
+      </ion-button>
+      <ion-button (click)="showHelp()">
+        HELP
+      </ion-button>
+      <ion-button (click)="showInfo()">
+        <ion-icon name="help-circle-outline"></ion-icon>
+      </ion-button>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <cdk-virtual-scroll-viewport itemSize="30" minBufferPx="100" maxBufferPx="250"
+                               class="scroll-viewport">
+    <div *cdkVirtualFor="let msg of dataService.onMessages()">
+      <ion-card>
+        <div *ngIf="msg.text">
+          <ion-col>
+            <ion-text>{{msg.dateString}}</ion-text>
+          </ion-col>
+          <div
+              [ngClass]="msg.username === 'bot' ? 'message received' : 'message sent'">
+            <span [innerHTML]="msg.text | safeHtml"
+                  (click)="showModal(msg.text, $event)">
+            </span>
+            <span class="metadata">
+              <span class="time">{{ msg.timeString }}</span>
+            </span>
+          </div>
+        </div>
+      </ion-card>
+    </div>
+  </cdk-virtual-scroll-viewport>
+</ion-content>
+
+<ion-footer *ngIf="warning !== ''">
+  <ion-item class="footer-warning">
+    {{ warning }}
+    <div class="spinner">
+      <div class="bounce1"></div>
+      <div class="bounce2"></div>
+      <div class="bounce3"></div>
+      <div class="bounce4"></div>
+      <div class="bounce5"></div>
+      <div class="bounce6"></div>
+    </div>
+  </ion-item>
+</ion-footer>
+
+<ion-footer *ngIf="warning === ''">
+  <canvas id="textWidthCanvas" style="display: none"></canvas>
+  <div *ngIf="dataService.hasButtons()">
+    <div class="ion-text-wrap buttons">
+      <ion-button *ngFor='let button of dataService.onButtons(0) | async;'
+                  [innerHTML]="button.title"
+                  (click)="buttonClicked(button)"
+                  [disabled]="dataService.syncing.getValue() !== false"
+                  class="button button-small">
+      </ion-button>
+    </div>
+  </div>
+  <div *ngIf="dataService.hasButtons(1)">
+    <div class="ion-text-wrap buttons">
+      <ion-button *ngFor='let button of dataService.onButtons(1) | async;'
+                  [innerHTML]="button.title"
+                  (click)="buttonClicked(button)"
+                  [disabled]="dataService.syncing.getValue() !== false"
+                  class="button button-small">
+      </ion-button>
+    </div>
+  </div>
+
+  <ion-item *ngIf="!dataService.hasButtons()">
+    <ion-fab-button (click)="showModal()" class="popup">
+      <ion-icon name="expand"></ion-icon>
+    </ion-fab-button>
+    <ion-input type="text" placeholder="Write a message..." #input
+               autocomplete="on" autocorrect="on" spellcheck="true" mode="ios"
+               [(ngModel)]="userInput" (keypress)="userTyping($event)">
+    </ion-input>
+    <ion-fab-button (click)="sendMessage()"
+                    [disabled]="dataService.syncing.getValue() !== false">
+      <ion-icon name="send"></ion-icon>
+    </ion-fab-button>
+  </ion-item>
+</ion-footer>
